@@ -1,3 +1,61 @@
 <template>
-  <h1>${message}</h1>
+    <require from="./assets/css/bootstrap.min.css"></require>
+    <require from="./assets/css/font-awesome.min.css"></require>
+    <require from="./assets/css/app.min.css"></require>
+
+    <section class="container main">
+        <nav class="row navigation">
+            <a href="#" class="col-sm-2">
+                <img src="./src/assets/images/logo.png" class="full-width" />
+            </a>
+            <a href="#" class="col-sm-2">
+                <h3><strong>The People</strong></h3>
+                <hr class="divider" />
+                <p>Quality not quantity, an adage we've lived by for 30 years now.</p>
+            </a>
+            <a href="#" class="col-sm-2 active">
+                <h3><strong>The Shop</strong></h3>
+                <hr class="divider" />
+                <p>Buy our award-winning wines onlines, read the tasting and technical notes.</p>
+            </a>
+            <a href="#" class="col-sm-2">
+                <h3><strong>The News</strong></h3>
+                <hr class="divider" />
+                <p>Latest happenings from the winery and our wine club.</p>
+            </a>
+            <a href="#" class="col-sm-2">
+                <h3><strong>Visit Us</strong></h3>
+                <hr class="divider" />
+                <p>Our award-winning native garden, artists residence and cellar door.</p>
+            </a>
+            <a href="#" class="col-sm-2">
+                <h3><strong>The Club</strong></h3>
+                <hr class="divider" />
+                <p>Latest happenings from the winery and our wine club.</p>
+            </a>
+        </nav>
+
+
+    </section>
+
+    <compose view-model="items"></compose>
+
+    <section class="footer container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Wine Orders</h3>
+                <hr class="divider" />
+                <p>All prices are in New Zealand Dollars and include GST.</p>
+                <p>You must be 18 years or older to order.</p>
+                <p>We reserve the right to restrict sales should orders exceed supply.</p>
+                <p>We aim to please. If you're not 100% happy, please return your purchase for a complete refund.</p>
+            </div>
+            <div class="col-sm-3">
+                <h3>Delivery</h3>
+                <hr class="divider" />
+                <p>Delivery is available within New Zealand only and may take up to two weeks.</p>
+                <p>For International enquiries please refer to our local agents or search for retailers on <a href="#">Wine Searcher</a>.</p>
+            </div>
+        </div>
+    </section>
 </template>

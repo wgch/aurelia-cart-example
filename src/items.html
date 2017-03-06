@@ -1,0 +1,96 @@
+<template>
+    <section class="container margin-top-xl margin-bottom-xl">
+        <div class="row">
+            <div class="col-sm-3 padding-left-lg padding-right-lg">
+                <div class="row">
+                    <button class="btn pull-left">Show me</button>
+                    <button class="btn bg-transparent pull-right">Show all</button>
+                </div>
+                <div class="row">
+                    <div class="bg-grey padding-md full-width border-radius">
+                        <div>
+                            <label class="label label-default">White</label>
+                            <label class="label label-default">Red</label>
+                            <label class="label label-default">Sparkling</label>
+                        </div>
+                        <div class="padding-top-md">
+                            Order by: <label class="label label-default">Price</label>
+                            <label class="label label-default">Vintage</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 bg-grey padding-md border-radius">
+                <div class="row">
+                    <div class="col-sm-2 padding-bottom-md va-center">
+                        <h3>Your Cart</h3>
+                    </div>
+                    <div class="col-sm-2 text-center padding-top-md padding-bottom-md border-right border-left border-white">
+                        <h1>${totalBottles}</h1>
+                        <h4>Bottles</h3>
+                    </div>
+                    <div class="col-sm-2 text-center padding-top-md padding-bottom-md border-right border-white">
+                        <h1>${totalCases}</h1>
+                        <h4>Cases</h3>
+                    </div>
+                    <div class="col-sm-6 va-center">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <table class="table table-condensed">
+                                    <tr repeat.for="item of cart">
+                                        <td style="border-bottom: #ccc solid 1px; font-size: 12px;">${item.caseQuantity || item.bottleQuantity} X ${item.name}(${item.caseQuantity >
+                                            0 ? 'Case' : 'Bottle'}) <a href="#" class="text-danger" click.trigger="removeFromCart(item, $index)">Remove</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total:</strong> <strong class="text-danger">$${totalPrice}</strong></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-4 padding-top-md">
+                                <button class="btn btn-sm btn-default margin-bottom-sm btn-block" click.delegate="emptyCart()">Empty Cart</button>
+                                <button class="btn btn-sm bg-dark-grey margin-bottom-sm btn-block"><strong>Checkout</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container margin-top-xl margin-bottom-xl">
+        <div class="item">
+            <ol class="list-unstyled list-inline">
+                <li repeat.for="item of items" class="item-container">
+                    <img class="item-image" src="${item.image}" />
+                    <div class="item-meta padding-left-md padding-right-md">
+                        <div class="top ">
+                            <h1>${item.rate}</h1>
+                            <h3 class="opacity-8">${item.name}</h3>
+                        </div>
+                        <div class="bottom">
+                            <div class="row">
+                                <div class="col-xs-6 border-right">
+                                    <h4 class="padding-bottom-xs opacity-8">Bottle</h4>
+                                    <h4 class="padding-bottom-sm"><strong>$${item.bottlePrice}</strong></h4>
+                                    <input class="form-control input-sm" style="width: 80px; float: left; " type="text" value.two-way="item.bottleQuantity" placeholder="QTY"
+                                    />
+                                </div>
+                                <div class="col-xs-6">
+                                    <h4 class="padding-bottom-xs opacity-8">Case</h4>
+                                    <h4 class="padding-bottom-sm"><strong>$${item.casePrice}</strong></h4>
+                                    <input class="form-control input-sm" style="width: 80px; float: left;" value.two-way="item.caseQuantity" type="text" placeholder="QTY"
+                                    />
+                                </div>
+                            </div>
+                            <div class="padding-top-md">
+                                <button class="btn bg-grey h5">Details</button> &nbsp;
+                                <button class="btn btn-warning h5" click.delegate="addToCart(item, item.bottleQuantity)"><strong>Add to cart</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+</template>
